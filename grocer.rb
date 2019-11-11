@@ -29,6 +29,13 @@ def consolidate_cart(cart)
   # change `cart` (i.e. mutate) it. It's easier to return a new thing.
 end
 
+def apply_coupon_to_cart(matching_item, coupon, cart)
+  matching_item[:count] -= coupon[:num]
+  item_with_coupon = mk_coupon_hash(coupon)
+  item_with_coupon[:clearance] = matching_item[:clearance]
+  cart << item_with_coupon
+end
+
 def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs
   i = 0
@@ -57,10 +64,7 @@ def apply_clearance(cart)
     end
   end
   cart
-  
-  
-  
-  # REMEMBER: This method **should** update cart
+   # REMEMBER: This method **should** update cart
 end
 
 def checkout(cart, coupons)
