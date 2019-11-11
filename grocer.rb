@@ -90,7 +90,7 @@ def checkout(cart, coupons)
     i += 1
   end
 
-  total >= 100 ? total * (1.0 - BIG_PURCHASE_DISCOUNT_RATE) : total
+#  total >= 100 ? total * (1.0 - BIG_PURCHASE_DISCOUNT_RATE) : total
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
 end
