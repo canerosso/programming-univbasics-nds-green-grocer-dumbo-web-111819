@@ -10,7 +10,19 @@ end
 
 def consolidate_cart(cart)
   # Consult README for inputs and outputs
-  
+    new_hash = {}
+  cart.each do |item|
+    if new_hash[item.keys[0]]
+      new_hash[item.keys[0]][:count] += 1
+    else
+      new_hash[item.keys[0]] = {
+        count: 1,
+        price: item.values[0][:price],
+        clearance: item.values[0][:clearance]
+      }
+    end
+  end
+  new_hash
   
   
   # REMEMBER: This returns a new Array that represents the cart. Don't merely
