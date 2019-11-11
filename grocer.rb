@@ -10,21 +10,21 @@ end
 
 def consolidate_cart(cart)
   # Consult README for inputs and outputs
-    new_hash = {}
-  cart.each do |item|
-    if new_hash[item.keys[0]]
-      new_hash[item.keys[0]][:count] += 1
+    i = 0
+  result = []
+
+  while i < cart.count do
+    item_name = cart[i][:item]
+    sought_item = find_item_by_name_in_collection(item_name, result)
+    if sought_item
+      sought_item[:count] += 1
     else
-      new_hash[item.keys[0]] = {
-        count: 1,
-        price: item.values[0][:price],
-        clearance: item.values[0][:clearance]
-      }
+      cart[i][:count] = 1
+      result << cart[i]
     end
+    i += 1
   end
-  new_hash
-  
-  
+  result
   # REMEMBER: This returns a new Array that represents the cart. Don't merely
   # change `cart` (i.e. mutate) it. It's easier to return a new thing.
 end
