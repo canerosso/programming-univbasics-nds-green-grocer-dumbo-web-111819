@@ -1,3 +1,7 @@
+
+
+
+
 def find_item_by_name_in_collection(name, collection)
   # Implement me 
   i = 0
@@ -90,7 +94,13 @@ def checkout(cart, coupons)
     i += 1
   end
 
-#  total >= 100 ? total * (1.0 - BIG_PURCHASE_DISCOUNT_RATE) : total
+  total >= 100 ? total * (1.0 - BIG_PURCHASE_DISCOUNT_RATE) : total
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
+end
+
+
+
+def items_total_cost(i)
+  i[:count] * i[:price]
 end
